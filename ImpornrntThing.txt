@@ -1,0 +1,71 @@
+const [errors, setErrors] = useState({});
+ const validateFormUpdate = () => {
+    let formIsValid = true;
+    let errors = {};
+	
+    if (!inputValue.name) {
+      formIsValid = false;
+      errors["name"] = "Bitte überprüfen Sie ihre Eingabe*";
+    }
+    setErrors(errors);
+    return formIsValid;
+  };
+  <span>{errors["name"]}</span>
+
+
+  //////////////////////////////////////////////////////////////////////////////
+
+
+
+  const ref = useRef();
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (show && ref.current && !ref.current.contains(e.target)) {
+        setShow(true);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [show]);
+Jya mukvu hoy =  ref={ref}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+const [check, setCheck] = useState({
+        firstname : "",
+        hobby : []
+    });
+    console.log("checkkkk",check);
+    const checkHandler = (e) => {
+        const {name , value} = e.target;
+        let newArray = [...check.hobby , value];
+        if (check.hobby.includes(value)) {
+            newArray = newArray.filter(day => day !== value);
+          }
+        setCheck({...check , hobby : newArray})
+    }
+	
+	const inputHandler = (e) => {
+        const {name , value} = e.target;
+        console.log("valueeeeeeeee",value);
+        setCheck({...check , [name] : value})
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+
+    const filterData = getData && getData?.filter((el, index) => {
+        if (serachbox === "") {
+            return el;
+        } else if (serachbox !== "") {
+            let fullName = `${el.Name}`;
+            let res = fullName.toLowerCase();
+            return res.match(serachbox.toLowerCase());
+        }
+    });
